@@ -1,0 +1,17 @@
+<%- include('../../../../templates/head') %>
+<title>Admin - Les pixels</title>
+<%- include('../../../../templates/headClose') %>
+
+<%- include('../../../../templates/header.ejs'); %>
+
+<main>
+    <h2>Liste des images</h2>
+    <a onclick="window.history.back()" href="#">Retour</a>
+    <% for (let img of imgs) { %>
+        <img src="<%= img.url %>" alt="img">
+    <% } %>
+</main>
+
+<%- include('../../../../templates/footer.ejs'); %>
+<%- include('../../../../templates/htmlClose.ejs'); %>
+

@@ -1,5 +1,6 @@
 import express, { Express, Request, Response } from 'express';
 import dotenv from 'dotenv';
+import adminRouter from './routes/admin';
 
 dotenv.config();
 
@@ -9,6 +10,9 @@ const port: string = process.env.PORT || "3000";
 app.set('views', __dirname + '/pages');
 app.set('view engine', 'ejs'); // Sets the view engine
 app.use(express.static(__dirname + '/public'));
+
+app.use('/admin', adminRouter);
+
 
 app.get('/', (req: Request, res: Response) => {
     res.send('Express + TypeScript Server');

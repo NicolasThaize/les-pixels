@@ -1,0 +1,29 @@
+<%- include('../../../../templates/head') %>
+<title>Admin - Les pixels</title>
+<%- include('../../../../templates/headClose') %>
+
+<%- include('../../../../templates/header.ejs'); %>
+
+<main>
+    <h2>Ajouter une image</h2>
+    <a onclick="window.history.back()" href="#">Retour</a>
+    <form method="post" id="creatImgForm" action="/create/img">
+        <label>
+            Ajouter une image:
+            <input type="file"
+                   id="img" name="img"
+                   accept="image/png, image/jpeg, image/jpg">
+        </label>
+    </form>
+
+    <section>
+        <% if (imgUrl) {%>
+        Voici un rendu de l'image uploadée:
+        <img alt="img" src="<%= imgUrl %>">
+        <% } %>
+    </section>
+</main>
+
+<%- include('../../../../templates/footer.ejs'); %>
+<%- include('../../../../templates/htmlClose.ejs'); %>
+
