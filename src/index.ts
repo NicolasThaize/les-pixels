@@ -1,6 +1,7 @@
 import express, { Express, Request, Response } from 'express';
 import dotenv from 'dotenv';
 import adminRouter from './routes/admin';
+import gameRouter from './routes/game';
 
 dotenv.config();
 
@@ -12,10 +13,17 @@ app.set('view engine', 'ejs'); // Sets the view engine
 app.use(express.static(__dirname + '/public'));
 
 app.use('/admin', adminRouter);
+app.use('/game', gameRouter);
 
+app.locals = {
+    user: {
+        username: "Jojo",
+        isAdmin: true
+    }
+};
 
 app.get('/', (req: Request, res: Response) => {
-    res.send('Express + TypeScript Server');
+    res.render('index.ejs');
 });
 
 app.get('/register',(req: Request, res: Response) => {

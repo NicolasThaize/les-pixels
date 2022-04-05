@@ -7,9 +7,7 @@
 <main>
     <h2>Liste des images</h2>
     <a onclick="window.history.back()" href="#">Retour</a>
-    <% for (let img of imgs) { %>
-        <img src="<%= img.url %>" alt="img">
-    <% } %>
+    <%- include('../../../../templates/img/_list.ejs'); %>
 </main>
 
 <%- include('../../../../templates/footer.ejs'); %>

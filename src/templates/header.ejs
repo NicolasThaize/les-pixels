@@ -1,3 +1,12 @@
 <header>
-    <h1>Les pixels</h1>
+    <h1><a href="/">Les pixels</a></h1>
+    <% if (user) { %>
+    Pseudo: <%= user.username%>
+    <% } %>
+    <ul>
+        <li><a href="/game/list">Jeu</a></li>
+        <% if (user.isAdmin) { %>
+        <li><a href="/admin">Admin</a></li>
+        <% } %>
+    </ul>
 </header>
