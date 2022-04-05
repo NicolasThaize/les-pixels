@@ -4,7 +4,7 @@ import dotenv from 'dotenv';
 dotenv.config();
 
 const app: Express = express();
-const port = process.env.PORT;
+const port: string = process.env.PORT || "3000";
 
 app.set('views', __dirname + '/pages');
 app.set('view engine', 'ejs'); // Sets the view engine
@@ -14,11 +14,11 @@ app.get('/', (req: Request, res: Response) => {
     res.send('Express + TypeScript Server');
 });
 
-app.get('/register',(req, res) => {
+app.get('/register',(req: Request, res: Response) => {
     res.render('register/index.ejs');
 });
 
-app.get('/login',(req, res) => {
+app.get('/login',(req: Request, res: Response) => {
     res.render('login/index.ejs');
 });
 
